@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>blog create</title>
+    <link rel="stylesheet" href="{% static 'blog/css/post_create.css' %}">
+    <link href="{% static 'blog/css/bootstrap.min.css' %}">
+    <script src="{% static 'blog/js/bootstrap.bundle.min.js' %}" ></script>
+</head>
+<body data-bs-theme="dark">
+    <h1 class="text-center">Создать пост</h1>
+  <form method="POST" action="/create/" class="mx-auto d-flex flex-column gap-2 mt-3">
+      {% csrf_token %}
+      <input type="text" name="name" class="form-control">
+      <input type="text" name="content" class="form-control">
+      <input type="file" name="img" class="form-control">
+      <button type="submit" class="btn btn-success">Создать</button>
+  </form>
+  <a href="/blog/">Блог</a>
+</body>
+</html>

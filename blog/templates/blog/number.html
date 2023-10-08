@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>{{ result }}</p>
+    <form method="POST" action="/guess_numbers/">
+        {% csrf_token %}
+        <input type="number" name="number">
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>
