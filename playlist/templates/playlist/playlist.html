@@ -39,7 +39,7 @@
     <h1 class="text-center ">Видео</h1>
     <div class="d-flex justify-content-center gap-5">
         {% for video in all_videos %}
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 22rem;">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video.embed_code }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 <div class="card-body d-flex justify-content-between flex-column">
                     <h5 class="card-title">{{ video.name }}</h5>
