@@ -12,6 +12,7 @@ urlpatterns = [
     path('guess_numbers/', guess_numbers),
     path('create/', create),
     path('playlist/', playlist),
+    path('playlist/create_video/', create_video),
 
 ]
 if settings.DEBUG:

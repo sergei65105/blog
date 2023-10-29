@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block title %}create video{% endblock %}
+{% block content %}
+    <h1 class="text-center">Создать пост</h1>
+    <form method="POST" class="mx-auto d-flex flex-column gap-2 mt-3" style="width: 500px">
+        {% csrf_token %}
+        <input type="text" name="name" class="form-control" placeholder="Название">
+        <input type="text" name="embed_code" class="form-control" placeholder="Код вставки">
+        <label>
+            <span>Опубликован</span>
+            <input type="checkbox" name="is_published" class="form-check-input">
+        </label>
+        <button type="submit" class="btn btn-success">Создать</button>
+    </form>
+{% endblock %}
