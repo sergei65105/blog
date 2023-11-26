@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Video
 
 # Create your views here.
@@ -12,7 +12,6 @@ def create_video(request):
         embed_code = request.POST['embed_code']
         is_published = bool(request.POST.get('is_published'))
         Video.objects.create(name=name, embed_code=embed_code, is_published=is_published)
-        all_videos = Video.objects.all()
-        return render(request, 'playlist/playlist.html', {'all_videos': all_videos})
+        return redirect('playlist')
     else:
         return render(request, 'playlist/create_video.html', )

@@ -8,11 +8,12 @@ from blog.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/posts_list/', posts_list),
+    path('blog/post_list/', post_list, name='post_list'),
     path('guess_numbers/', guess_numbers),
     path('create/', create),
-    path('playlist/', playlist),
-    path('playlist/create_video/', create_video),
+    path('playlist/', playlist,  name='playlist'),
+    path('playlist/create_video/', create_video, name='create_video'),
+    path('blog/post_like/', post_like, name='post_like'),
 
 ]
 if settings.DEBUG:

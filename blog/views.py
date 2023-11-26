@@ -1,13 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 import random
 
 from .models import Post
 
 
-def posts_list(request):
+def post_list(request):
     all_posts = Post.objects.all()
     return render(request, 'blog/posts_list.html', {'all_posts': all_posts})
+
 
 def guess_numbers(request):
     if request.method == 'POST':
@@ -22,7 +23,17 @@ def guess_numbers(request):
             })
     return render(request, 'blog/number.html')
 
+
 def create(request):
     if request.method == 'POST':
         print(request.POST)
     return render(request, 'blog/create.html')
+
+
+def post_like(request):
+    if request.method == 'POST':
+        post_id = request.POST['post_id']
+        post = Post.objects.get(id=post_id)
+        post.likes += 1
+        post.save()
+    return redirect('post_list')
